@@ -38,13 +38,11 @@ load(
 )
 
 cargo_build_script(
-    name = "quote_build_script",
+    name = "windows_x86_64_gnu_build_script",
     srcs = glob(["**/*.rs"]),
     build_script_env = {
     },
     crate_features = [
-        "default",
-        "proc-macro",
     ],
     crate_root = "build.rs",
     data = glob(["**"]),
@@ -56,18 +54,16 @@ cargo_build_script(
         "cargo-raze",
         "manual",
     ],
-    version = "1.0.21",
+    version = "0.42.2",
     visibility = ["//visibility:private"],
     deps = [
     ],
 )
 
 rust_library(
-    name = "quote",
+    name = "windows_x86_64_gnu",
     srcs = glob(["**/*.rs"]),
     crate_features = [
-        "default",
-        "proc-macro",
     ],
     crate_root = "src/lib.rs",
     data = [],
@@ -77,17 +73,12 @@ rust_library(
     ],
     tags = [
         "cargo-raze",
-        "crate-name=quote",
+        "crate-name=windows_x86_64_gnu",
         "manual",
     ],
-    version = "1.0.21",
+    version = "0.42.2",
     # buildifier: leave-alone
     deps = [
-        ":quote_build_script",
-        "@wasmtime__proc_macro2__1_0_47//:proc_macro2",
+        ":windows_x86_64_gnu_build_script",
     ],
 )
-
-# Unsupported target "compiletest" with type "test" omitted
-
-# Unsupported target "test" with type "test" omitted

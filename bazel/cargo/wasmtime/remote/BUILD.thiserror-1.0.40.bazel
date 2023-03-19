@@ -38,7 +38,7 @@ load(
 )
 
 cargo_build_script(
-    name = "windows_i686_msvc_build_script",
+    name = "thiserror_build_script",
     srcs = glob(["**/*.rs"]),
     build_script_env = {
     },
@@ -54,31 +54,60 @@ cargo_build_script(
         "cargo-raze",
         "manual",
     ],
-    version = "0.42.0",
+    version = "1.0.40",
     visibility = ["//visibility:private"],
     deps = [
     ],
 )
 
 rust_library(
-    name = "windows_i686_msvc",
+    name = "thiserror",
     srcs = glob(["**/*.rs"]),
     crate_features = [
     ],
     crate_root = "src/lib.rs",
     data = [],
     edition = "2018",
+    proc_macro_deps = [
+        "@wasmtime__thiserror_impl__1_0_40//:thiserror_impl",
+    ],
     rustc_flags = [
         "--cap-lints=allow",
     ],
     tags = [
         "cargo-raze",
-        "crate-name=windows_i686_msvc",
+        "crate-name=thiserror",
         "manual",
     ],
-    version = "0.42.0",
+    version = "1.0.40",
     # buildifier: leave-alone
     deps = [
-        ":windows_i686_msvc_build_script",
+        ":thiserror_build_script",
     ],
 )
+
+# Unsupported target "compiletest" with type "test" omitted
+
+# Unsupported target "test_backtrace" with type "test" omitted
+
+# Unsupported target "test_deprecated" with type "test" omitted
+
+# Unsupported target "test_display" with type "test" omitted
+
+# Unsupported target "test_error" with type "test" omitted
+
+# Unsupported target "test_expr" with type "test" omitted
+
+# Unsupported target "test_from" with type "test" omitted
+
+# Unsupported target "test_generics" with type "test" omitted
+
+# Unsupported target "test_lints" with type "test" omitted
+
+# Unsupported target "test_option" with type "test" omitted
+
+# Unsupported target "test_path" with type "test" omitted
+
+# Unsupported target "test_source" with type "test" omitted
+
+# Unsupported target "test_transparent" with type "test" omitted
